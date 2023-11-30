@@ -29,7 +29,7 @@ export default function Nominate({ designers }) {
       </div>
 
       <Link href="/" shallow={true}>
-        <a className="auxNav arrowback">←</a>
+        ←
       </Link>
       <style jsx global>{`
         html,

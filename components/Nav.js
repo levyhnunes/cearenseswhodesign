@@ -4,14 +4,10 @@ export default function Nav(props) {
   return (
     <ul className="auxNav" {...props}>
       <li>
-        <Link href="/about">
-          <a>About</a>
-        </Link>
+        <Link href="/about">About</Link>
       </li>
       <li>
-        <Link href="/nominate">
-          <a>Nominate</a>
-        </Link>
+        <Link href="/nominate">Nominate</Link>
       </li>
 
       <style jsx>{`

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";    
+import { motion, AnimatePresence } from "framer-motion";
 import Nav from "../components/Nav.js";
 import Filter from "../components/Filter.js";
 import Title from "../components/Title.js";
@@ -14,10 +14,7 @@ export async function getStaticProps() {
       ? "http://localhost:3000"
       : "https://brazilianswho.design/";
 
-  console.log(origin)
-
   const res = await fetch(`${origin}/api/designers`);
-  console.log(res)
   const designers = await res.json();
 
   let uniqueExpertise = new Set();
@@ -221,10 +218,18 @@ function Content({ designers, handleOpenFilter, className, onClick }) {
             <tbody>
               {designers.map((d, i) => (
                 <tr key={`${d.name}-${i}`}>
-                  <td><a href={d.link}>{d.name}</a></td>
-                  <td className="thsize-aux dn"><a href={d.link}>{d.location}</a></td>
-                  <td className="thsize-aux"><a href={d.link}>{d.expertise}</a></td>
-                  <td className="thsize-link"><a href={d.link}>→</a></td>
+                  <td>
+                    <a href={d.link}>{d.name}</a>
+                  </td>
+                  <td className="thsize-aux dn">
+                    <a href={d.link}>{d.location}</a>
+                  </td>
+                  <td className="thsize-aux">
+                    <a href={d.link}>{d.expertise}</a>
+                  </td>
+                  <td className="thsize-link">
+                    <a href={d.link}>→</a>
+                  </td>
                 </tr>
               ))}
             </tbody>
