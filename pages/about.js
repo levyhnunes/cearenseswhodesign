@@ -27,7 +27,7 @@ export default function Home({ designers }) {
   return (
     <div className="container">
       <Head>
-        <title>Brazilians Who Design | About</title>
+        <title>Cearense Who Design | About</title>
         <link rel="icon" href="/favicon.ico" />
         <MetaTags />
       </Head>
@@ -38,7 +38,7 @@ export default function Home({ designers }) {
 
       <Title
         className="title m0 p0"
-        text="Brazilians*who&nbsp;design&nbsp;is&nbsp;a"
+        text="Cearense*who&nbsp;design&nbsp;is&nbsp;a"
         noAnimation
       />
 
@@ -151,11 +151,11 @@ export default function Home({ designers }) {
 
           <h3>How did you build this?</h3>
           <p>
-            Brazilians Who Design is{" "}
+            Cearense Who Design is{" "}
             <a
               className="link"
               target="_blank"
-              href="https://github.com/zehfernandes/brazilianswhodesign"
+              href="https://github.com/zehfernandes/cearensewhodesign"
             >
               open source
             </a>{" "}

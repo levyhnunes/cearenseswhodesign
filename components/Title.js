@@ -5,13 +5,13 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.04,
+      staggerChildren: 0.03,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: "5%" },
+  hidden: { opacity: 0, y: "-10%" },
   show: { opacity: 1, y: "0%" },
   transition: {
     easing: "easeInOut",
@@ -31,6 +31,7 @@ export default function Title(props) {
     >
       {text.split("").map((l, i) => {
         if (l == "*") return <br key={`${l}-${i}`} />;
+
         return (
           <motion.span className="letter" variants={item} key={`${l}-${i}`}>
             {l}

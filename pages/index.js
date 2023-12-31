@@ -9,42 +9,42 @@ import Analytics from "../components/Analytics.js";
 import FilterSVG from "../components/Icons/FilterSVG.js";
 
 export async function getStaticProps() {
-  const origin =
-    process.env.NODE_ENV !== "production"
-      ? "http://localhost:3000"
-      : "https://brazilianswho.design/";
+  // const origin =
+  //   process.env.NODE_ENV !== "production"
+  //     ? "http://localhost:3000"
+  //     : "https://brazilianswho.design/";
 
-  const res = await fetch(`${origin}/api/designers`);
-  const designers = await res.json();
+  // const res = await fetch(`${origin}/api/designers`);
+  // const designers = await res.json();
 
-  let uniqueExpertise = new Set();
-  designers.map((d) => uniqueExpertise.add(d.expertise));
+  // let uniqueExpertise = new Set();
+  // designers.map((d) => uniqueExpertise.add(d.expertise));
 
-  let uniqueLocation = new Set();
-  designers.map((d) => uniqueLocation.add(d.location));
+  // let uniqueLocation = new Set();
+  // designers.map((d) => uniqueLocation.add(d.location));
 
-  let expertises = Array.from(uniqueExpertise).map((e) => {
-    return { label: e, active: false, category: "expertise" };
-  });
+  // let expertises = Array.from(uniqueExpertise).map((e) => {
+  //   return { label: e, active: false, category: "expertise" };
+  // });
 
-  let locations = Array.from(uniqueLocation)
-    .sort()
-    .map((e) => {
-      return { label: e, active: false, category: "location" };
-    });
+  // let locations = Array.from(uniqueLocation)
+  //   .sort()
+  //   .map((e) => {
+  //     return { label: e, active: false, category: "location" };
+  //   });
 
-  let filters = expertises.concat(locations);
+  // let filters = expertises.concat(locations);
 
   return {
     props: {
-      designers,
-      filters,
+      designers: [],
+      filters: [],
     },
   };
 }
 
 export default function Home({ designers, filters }) {
-  const [isReady, setIsReady] = useState(false);
+  const [isReady, _] = useState(false);
   const [designersList, setDesignersList] = useState(null);
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [filterList, setFilterList] = useState(filters);
@@ -123,7 +123,7 @@ export default function Home({ designers, filters }) {
       }}
     >
       <Head>
-        <title>Brazilians Who Design</title>
+        <title>Cearense Who Design</title>
         <link id="favicon" rel="alternate icon" href="/favicon.ico" />
         <MetaTags />
       </Head>
@@ -180,7 +180,8 @@ function Content({ designers, handleOpenFilter, className, onClick }) {
     <div className={className} onClick={onClick}>
       <Nav />
 
-      <Title className="title m0 p0" text="Brazilians*who&nbsp;design" />
+      <Title className="title" text="Cearense" />
+      <Title className="title-primary" text="Who&nbsp;Design" />
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -199,7 +200,7 @@ function Content({ designers, handleOpenFilter, className, onClick }) {
                   e.preventDefault();
                 }}
               >
-                Location <FilterSVG />
+                Location <FilterSVG color="var(--primary)" />
               </td>
               <td
                 className="thsize-aux filterTable"
@@ -209,7 +210,7 @@ function Content({ designers, handleOpenFilter, className, onClick }) {
                   e.preventDefault();
                 }}
               >
-                Expertise <FilterSVG />
+                Expertise <FilterSVG color="var(--primary)" />
               </td>
               <td className="thsize-link"></td>
             </tr>
